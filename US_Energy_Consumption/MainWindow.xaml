@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="US_Energy_Consumption.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:US_Energy_Consumption"
+    xmlns:chart="using:Syncfusion.UI.Xaml.Charts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Border CornerRadius="10" Margin="20" BorderThickness="1"  BorderBrush="Black">
+        <chart:SfCartesianChart Name="chart" Margin="10" ManipulationCompleted="SfCartesianChart_ManipulationCompleted" ManipulationStarted="SfCartesianChart_ManipulationStarted" >
+            <chart:SfCartesianChart.Resources>
+                <local:ToolTipConverter x:Key="tooltip" />
+                <local:FillConverter x:Key="fillConverter" />
+                <local:ToolTipXValueConverter x:Key="tooltipXvalue" />
+                <local:ToolTipYValueConverter x:Key="tooltipYvalue" />
+                <DataTemplate x:Key="toolTipTemplate">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Converter={StaticResource tooltip}}"
+						      Foreground="{Binding Converter={StaticResource fillConverter}}"
+						   FontSize="14" FontWeight="Medium"
+						   HorizontalAlignment="Right"
+						   VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Item.Month,Converter={StaticResource tooltipXvalue}}"
+                            Foreground="Black"
+                            FontSize="14"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Item.NaturalGas,Converter={StaticResource tooltipYvalue}}"
+                            Foreground="Black"
+                            FontSize="14" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                                <TextBlock Text=" thousand tons"
+                                    Foreground="Black" FontSize="14" 
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="5" Margin="4,0,0,0" 
+                                    Background="{Binding Converter={StaticResource fillConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="toolTipTemplate1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Converter={StaticResource tooltip}}"
+					      Foreground="{Binding Converter={StaticResource fillConverter}}"
+					   FontSize="14" FontWeight="Medium"
+					   HorizontalAlignment="Right"
+					   VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Item.Month,Converter={StaticResource tooltipXvalue}}"
+                                            Foreground="Black"  FontSize="14"    HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Item.Coal,Converter={StaticResource tooltipYvalue}}"
+                                            Foreground="Black" FontSize="14"   HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                <TextBlock Text=" thousand tons"   Foreground="Black" FontSize="14" 
+                                            HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="5" Margin="4,0,0,0" 
+                 Background="{Binding Converter={StaticResource fillConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="toolTipTemplate2">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Converter={StaticResource tooltip}}"
+		                    Foreground="{Binding Converter={StaticResource fillConverter}}"
+		                    FontSize="14" FontWeight="Medium"  HorizontalAlignment="Right"
+		                     VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Item.Month,Converter={StaticResource tooltipXvalue}}"
+                                        Foreground="Black" FontSize="14"  HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Item.HydroElectric,Converter={StaticResource tooltipYvalue}}"
+                                            Foreground="Black" FontSize="14"   HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                <TextBlock Text=" thousand megawatthour"   Foreground="Black" FontSize="14" 
+                                            HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="5" Margin="4,0,0,0" 
+                                Background="{Binding Converter={StaticResource fillConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="toolTipTemplate3">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Converter={StaticResource tooltip}}"
+		                            Foreground="{Binding Converter={StaticResource fillConverter}}" FontSize="14" FontWeight="Medium"
+		                            HorizontalAlignment="Right"   VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Item.Month,Converter={StaticResource tooltipXvalue}}"
+                                        Foreground="Black" FontSize="14"  HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Item.Nuclear,Converter={StaticResource tooltipYvalue}}"
+                                            Foreground="Black" FontSize="14"  HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                <TextBlock Text=" thousand megawatthour"  Foreground="Black" FontSize="14" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="5" Margin="4,0,0,0" 
+                                    Background="{Binding Converter={StaticResource fillConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="toolTipTemplate4">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Converter={StaticResource tooltip}}"
+		                               Foreground="{Binding Converter={StaticResource fillConverter}}" FontSize="14" FontWeight="Medium"
+		                               HorizontalAlignment="Right"     VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Item.Month,Converter={StaticResource tooltipXvalue}}"
+                                           Foreground="Black" FontSize="14" HorizontalAlignment="Right"
+                                           VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Item.PetroleumLiquid,Converter={StaticResource tooltipYvalue}}"
+                                            Foreground="Black" FontSize="14"   HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                <TextBlock Text=" thousand barrels" Foreground="Black" FontSize="14" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="5" Margin="4,0,0,0" 
+                             Background="{Binding Converter={StaticResource fillConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="toolTipTemplate5">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Converter={StaticResource tooltip}}"
+		                           Foreground="{Binding Converter={StaticResource fillConverter}}"   FontSize="14" FontWeight="Medium"
+		                           HorizontalAlignment="Right"      VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Item.Month,Converter={StaticResource tooltipXvalue}}"
+                                        Foreground="Black"  FontSize="14" HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Item.PetroleumLiquid,Converter={StaticResource tooltipYvalue}}"
+                                            Foreground="Black"  FontSize="14"  HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                <TextBlock Text=" thousand tons" Foreground="Black" FontSize="14" 
+                                 HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="5" Margin="4,0,0,0" 
+                                Background="{Binding Converter={StaticResource fillConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+                <Style TargetType="Line" x:Key="lineStyle">
+                    <Setter Property="StrokeThickness" Value="1"/>
+                    <Setter Property="Stroke" Value="Transparent"/>
+                </Style>
+                <local:AxisLabelConverter x:Key="axisLabel" />
+                <DataTemplate x:Key="labelTemplate">
+                    <Border >
+                        <TextBlock Text="{Binding Converter={StaticResource axisLabel}}"
+					   FontSize="13"
+					   Margin="2"/>
+                    </Border>
+                </DataTemplate>
+                <Style TargetType="Path" x:Key="style">
+                    <Setter Property="Stroke" Value="Black"/>
+                    <Setter Property="Fill" Value="White"/>
+                </Style>
+            </chart:SfCartesianChart.Resources>
+            <chart:SfCartesianChart.DataContext>
+                <local:EnergyUtilityConsumption/>
+            </chart:SfCartesianChart.DataContext>
+
+            <chart:SfCartesianChart.Header>
+                <TextBlock Text="Creating a Stacked Area Chart for U.S. Primary Energy Consumption" TextWrapping="Wrap" FontSize="30"
+                FontWeight="Medium" Margin="2" />
+            </chart:SfCartesianChart.Header>
+
+            <chart:SfCartesianChart.XAxes>
+                <chart:DateTimeAxis ShowMajorGridLines="False" ZoomFactor="0.2"
+                                   ZoomPosition="0.9" MinorTickStyle="{StaticResource lineStyle}" >
+                    <chart:DateTimeAxis.LabelStyle>
+                        <chart:LabelStyle LabelFormat="MMM-yyy"  />
+                    </chart:DateTimeAxis.LabelStyle>
+                </chart:DateTimeAxis>
+            </chart:SfCartesianChart.XAxes>
+
+
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis ShowMajorGridLines="False"  Interval="50000"
+                                     LabelTemplate="{StaticResource labelTemplate}" 
+                                     MinorTickStyle="{StaticResource lineStyle}"/>
+            </chart:SfCartesianChart.YAxes>
+            
+            <chart:SfCartesianChart.TooltipBehavior>
+                <chart:ChartTooltipBehavior Duration="10000" EnableAnimation="True" 
+                                            Style="{StaticResource style}"/>
+            </chart:SfCartesianChart.TooltipBehavior>
+
+            <chart:SfCartesianChart.ZoomPanBehavior>
+                <chart:ChartZoomPanBehavior EnablePanning="True" EnableMouseWheelZooming="False"
+                                            EnablePinchZooming="False" />
+            </chart:SfCartesianChart.ZoomPanBehavior>
+
+            <chart:StackedAreaSeries Fill="Black" Name="PetroleumCoke" ItemsSource="{Binding PetroleumCoke}" 
+                                     TooltipTemplate="{StaticResource toolTipTemplate5}" 
+                                     EnableTooltip="True" XBindingPath="Month" 
+                                     YBindingPath="PetroleumCoke">
+            </chart:StackedAreaSeries>
+
+
+            <chart:StackedAreaSeries Fill="#FFE55C" Name="PetroleumLiquid" 
+                                     TooltipTemplate="{StaticResource toolTipTemplate4}"
+                                     ItemsSource="{Binding PetroleumLiquid}" EnableTooltip="True" 
+                                     XBindingPath="Month" YBindingPath="PetroleumLiquid"  >
+            </chart:StackedAreaSeries>
+
+            <chart:StackedAreaSeries Fill="#88CA5E" Name="Nuclear"  
+                                     ItemsSource="{Binding Nuclear}" EnableTooltip="True"  
+                                     TooltipTemplate="{StaticResource toolTipTemplate3}" XBindingPath="Month"
+                                     YBindingPath="Nuclear">
+            </chart:StackedAreaSeries>
+
+            <chart:StackedAreaSeries Fill="#9CA89E" Name="HydroElectric"
+                                     TooltipTemplate="{StaticResource toolTipTemplate2}"   
+                                     ItemsSource="{Binding HydroElectric}" EnableTooltip="True"
+                                     XBindingPath="Month" YBindingPath="HydroElectric">
+            </chart:StackedAreaSeries>
+
+            <chart:StackedAreaSeries Fill="#FF67b4" Name="Coal" 
+                                     TooltipTemplate="{StaticResource toolTipTemplate1}" 
+                                     ItemsSource="{Binding Coal}" EnableTooltip="True" XBindingPath="Month"
+                                     YBindingPath="Coal"  >
+            </chart:StackedAreaSeries>
+
+            <chart:StackedAreaSeries Fill="#32CBF1" Name="NaturalGas"  
+                                     TooltipTemplate="{StaticResource toolTipTemplate}" 
+                                     ItemsSource="{Binding NaturalGas}" EnableTooltip="True" 
+                                     XBindingPath="Month" YBindingPath="NaturalGas"  >
+            </chart:StackedAreaSeries>
+        </chart:SfCartesianChart>
+    </Border>
+</Window>

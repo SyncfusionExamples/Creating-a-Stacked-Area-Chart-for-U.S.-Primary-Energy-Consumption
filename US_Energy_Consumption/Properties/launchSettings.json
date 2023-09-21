@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "US_Energy_Consumption (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "US_Energy_Consumption (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
