@@ -22,3 +22,4 @@ We can display the chart area while zoomed in by enabling panning using the Enab
 
 ### Output
 
+![StackedAreaChart_Output](https://github.com/SyncfusionExamples/Creating-a-Stacked-Area-Chart-for-U.S.-Primary-Energy-Consumption/assets/105482474/2af3e7da-97c4-4591-b214-af346a392ccd)
