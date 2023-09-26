@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Border CornerRadius="10" Margin="20" BorderThickness="1"  BorderBrush="Black">
-        <chart:SfCartesianChart Name="chart" Margin="10" ManipulationCompleted="SfCartesianChart_ManipulationCompleted" ManipulationStarted="SfCartesianChart_ManipulationStarted" >
+        <chart:SfCartesianChart  x:Name="chart" Margin="10" ManipulationCompleted="SfCartesianChart_ManipulationCompleted" ManipulationStarted="SfCartesianChart_ManipulationStarted" >
             <chart:SfCartesianChart.Resources>
                 <local:ToolTipConverter x:Key="tooltip" />
                 <local:FillConverter x:Key="fillConverter" />
@@ -196,7 +196,7 @@
             </chart:SfCartesianChart.YAxes>
             
             <chart:SfCartesianChart.TooltipBehavior>
-                <chart:ChartTooltipBehavior Duration="10000" EnableAnimation="True" 
+                <chart:ChartTooltipBehavior Duration="2000" EnableAnimation="True" 
                                             Style="{StaticResource style}"/>
             </chart:SfCartesianChart.TooltipBehavior>
 
@@ -205,40 +205,44 @@
                                             EnablePinchZooming="False" />
             </chart:SfCartesianChart.ZoomPanBehavior>
 
-            <chart:StackedAreaSeries Fill="Black" Name="PetroleumCoke" ItemsSource="{Binding PetroleumCoke}" 
+            <chart:SfCartesianChart.Legend>
+                <chart:ChartLegend/>
+            </chart:SfCartesianChart.Legend>
+
+            <chart:StackedAreaSeries Fill="#FFE55C" Name="PetroleumCoke" ItemsSource="{Binding CollectionOfData}" 
                                      TooltipTemplate="{StaticResource toolTipTemplate5}" 
-                                     EnableTooltip="True" XBindingPath="Month" 
+                                     EnableTooltip="True" XBindingPath="Month" Label="PetroleumCoke"
                                      YBindingPath="PetroleumCoke">
             </chart:StackedAreaSeries>
 
 
-            <chart:StackedAreaSeries Fill="#FFE55C" Name="PetroleumLiquid" 
+            <chart:StackedAreaSeries Fill="#f54c4c" Name="PetroleumLiquid"  Label="PetroleumLiquid"
                                      TooltipTemplate="{StaticResource toolTipTemplate4}"
-                                     ItemsSource="{Binding PetroleumLiquid}" EnableTooltip="True" 
+                                     ItemsSource="{Binding CollectionOfData}" EnableTooltip="True" 
                                      XBindingPath="Month" YBindingPath="PetroleumLiquid"  >
             </chart:StackedAreaSeries>
 
-            <chart:StackedAreaSeries Fill="#88CA5E" Name="Nuclear"  
-                                     ItemsSource="{Binding Nuclear}" EnableTooltip="True"  
+            <chart:StackedAreaSeries Fill="#88CA5E" Name="Nuclear"  Label="Nuclear"  
+                                     ItemsSource="{Binding CollectionOfData}" EnableTooltip="True"  
                                      TooltipTemplate="{StaticResource toolTipTemplate3}" XBindingPath="Month"
                                      YBindingPath="Nuclear">
             </chart:StackedAreaSeries>
 
-            <chart:StackedAreaSeries Fill="#9CA89E" Name="HydroElectric"
+            <chart:StackedAreaSeries Fill="#9CA89E" Name="HydroElectric" Label="HydroElectric" 
                                      TooltipTemplate="{StaticResource toolTipTemplate2}"   
-                                     ItemsSource="{Binding HydroElectric}" EnableTooltip="True"
+                                     ItemsSource="{Binding CollectionOfData}" EnableTooltip="True"
                                      XBindingPath="Month" YBindingPath="HydroElectric">
             </chart:StackedAreaSeries>
 
-            <chart:StackedAreaSeries Fill="#FF67b4" Name="Coal" 
+            <chart:StackedAreaSeries Fill="#FF67b4" Name="Coal" Label="Coal" 
                                      TooltipTemplate="{StaticResource toolTipTemplate1}" 
-                                     ItemsSource="{Binding Coal}" EnableTooltip="True" XBindingPath="Month"
+                                     ItemsSource="{Binding CollectionOfData}" EnableTooltip="True" XBindingPath="Month"
                                      YBindingPath="Coal"  >
             </chart:StackedAreaSeries>
 
-            <chart:StackedAreaSeries Fill="#32CBF1" Name="NaturalGas"  
+            <chart:StackedAreaSeries Fill="#32CBF1" Name="NaturalGas"  Label="NaturalGas" 
                                      TooltipTemplate="{StaticResource toolTipTemplate}" 
-                                     ItemsSource="{Binding NaturalGas}" EnableTooltip="True" 
+                                     ItemsSource="{Binding CollectionOfData}" EnableTooltip="True" 
                                      XBindingPath="Month" YBindingPath="NaturalGas"  >
             </chart:StackedAreaSeries>
         </chart:SfCartesianChart>
