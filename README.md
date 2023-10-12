@@ -22,4 +22,6 @@ We can display the chart area while zoomed in by enabling panning using the Enab
 
 ### Output
 
-![Updated_Output](https://github.com/SyncfusionExamples/Creating-a-Stacked-Area-Chart-for-U.S.-Primary-Energy-Consumption/assets/105482474/9425c6a7-0765-4b43-8a97-6fc09231c9f5)
+![Updated_Output](https://github.com/SyncfusionExamples/Creating-a-Stacked-Area-Chart-for-U.S.-Primary-Energy-Consumption/assets/105482474/24d4b788-9964-4e82-9cc6-84f0b8aa271e)
+
+For a step by step procedure, refer to the [Creating a WinUI Stacked Area Chart to Visualize US Primary Energy Consumption](https://www.syncfusion.com/blogs/post/winui-stacked-area-chart-energy-consumption.aspx)
